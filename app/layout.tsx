@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Header } from "@/components/header";
 import { apercuRegular } from "@/app/fonts/font";
 import "./globals.css";
 
@@ -16,8 +17,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${apercuRegular.className} flex flex-col w-screen min-h-screen bg-white`}
+        className={`${apercuRegular.className} flex flex-col w-screen min-h-screen bg-white overrflow-x-hidden`}
       >
+        <Header />
         {children}
       </body>
     </html>
