@@ -1,7 +1,11 @@
 "use client";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { panchoSemibold } from "@/app/fonts/font";
+import { panchoSemibold, cutAlong, apercuRegular } from "@/app/fonts/font";
+import { BiSolidMessageDetail } from "react-icons/bi";
+import { BsCartFill } from "react-icons/bs";
+import { PiShoppingCartSimpleFill } from "react-icons/pi";
+
 export const Header = () => {
   const pathname = usePathname();
   return (
@@ -18,7 +22,7 @@ export const Header = () => {
           Find Pet
         </Link>
         <Link
-          href={"/pet-store"}
+          href={"/store"}
           className={`text-sm py-2.5 px-6  ${
             pathname == "/store"
               ? "text-[#657687] bg-white "
@@ -48,6 +52,28 @@ export const Header = () => {
           Food
         </Link>
       </nav>
+      <div className="w-screen flex justify-between items-center mt-0.5 px-12 h-16 border-b">
+        <h1 className={`${cutAlong.className} text-4xl text-blue-900`}>POZU</h1>
+        <div className="flex flex-row justify-center items-center space-x-10">
+          <button className="flex  justify-center items-center space-x-1 text-blue-900 ">
+            <span>Help</span>
+            <BiSolidMessageDetail className="text-2xl" />
+          </button>
+          <button className="flex  justify-center items-center space-x-1 text-blue-900 ">
+            <span>Cart</span>
+            <PiShoppingCartSimpleFill className="text-2xl" />
+          </button>
+
+          <Link href={"/sign-in"} className="text-blue-900">
+            Login
+          </Link>
+          <button
+            className={`bg-blue-900 text-white px-3 py-2 ${apercuRegular.className}`}
+          >
+            List Your Pet
+          </button>
+        </div>
+      </div>
     </header>
   );
 };
