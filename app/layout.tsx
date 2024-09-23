@@ -16,7 +16,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${apercuRegular.className}  bg-white `}>
+      <body className={`${apercuRegular.className} flex flex-col  bg-white `}>
         <Header />
         {children}
       </body>

@@ -4,6 +4,7 @@ import { usePathname } from "next/navigation";
 import { panchoSemibold, cutAlong, apercuRegular } from "@/app/fonts/font";
 import { BiSolidMessageDetail } from "react-icons/bi";
 import { PiShoppingCartSimpleFill } from "react-icons/pi";
+import { IoMdNotifications } from "react-icons/io";
 
 export const Header = () => {
   const pathname = usePathname();
@@ -11,7 +12,8 @@ export const Header = () => {
     <header className="w-full flex flex-col justify-center items-center">
       <nav className="w-full flex justify-start items-center bg-[#D1D4D8] overflow-x-auto">
         {[
-          { href: "/", label: "Find Pet" },
+          { href: "/", label: "Home" },
+          { href: "/find-pet", label: "Find Pet" },
           { href: "/store", label: "Store" },
           { href: "/services", label: "Services" },
           { href: "/food", label: "Food" },
@@ -37,9 +39,14 @@ export const Header = () => {
             <BiSolidMessageDetail className="text-2xl" />
           </button>
           <button className="flex justify-center items-center space-x-1 text-blue-900">
+            <span>Notification</span>
+            <IoMdNotifications className="text-2xl" />
+          </button>
+          <button className="flex justify-center items-center space-x-1 text-blue-900">
             <span>Cart</span>
             <PiShoppingCartSimpleFill className="text-2xl" />
           </button>
+
           <Link href="/sign-in" className="text-blue-900">
             Login
           </Link>
