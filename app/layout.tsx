@@ -14,7 +14,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${apercuRegular.className}`}>{children}</body>
+      <body
+        className={`${apercuRegular.className} flex flex-col w-screen min-h-screen bg-white`}
+      >
+        {children}
+      </body>
     </html>
   );
 }
