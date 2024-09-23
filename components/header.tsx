@@ -13,7 +13,7 @@ export const Header = () => {
       <nav className="w-full flex justify-start items-center bg-[#D1D4D8] overflow-x-auto">
         {[
           { href: "/", label: "Home" },
-          { href: "/find-pet", label: "Find Pet" },
+          { href: "/find-pets", label: "Find Pet" },
           { href: "/store", label: "Store" },
           { href: "/services", label: "Services" },
           { href: "/food", label: "Food" },
