@@ -1,7 +1,9 @@
 import { panchoSemibold } from "@/app/fonts/font";
+import { DogSliderComponent } from "@/components/dog-slider";
+import { TopSellingProduct } from "@/components/best-selling-product";
 export default function Home() {
   return (
-    <div className="h-screen  flex flex-col overflow-x-hidden ">
+    <div className="h-full  flex flex-col overflow-x-hidden ">
       <div className="h-[90vh] w-full  bg-[url('/hero-image4.png')] bg-cover bg-center bg-no-repeat bg-opacity-50 flex justify-start items-center">
         <div className="w-[40%] pl-16 flex flex-col justify-center items-center space-y-6 text-white">
           <h1 className={`text-6xl ${panchoSemibold.className} `}>
@@ -18,6 +20,8 @@ export default function Home() {
           </div>
         </div>
       </div>
+      <DogSliderComponent />
+      <TopSellingProduct />
     </div>
   );
 }

@@ -9,7 +9,7 @@ import { IoMdNotifications } from "react-icons/io";
 export const Header = () => {
   const pathname = usePathname();
   return (
-    <header className="w-full flex flex-col justify-center items-center">
+    <header className="w-full flex flex-col justify-center items-center shadow-2xl">
       <nav className="w-full flex justify-start items-center bg-[#D1D4D8] overflow-x-auto">
         {[
           { href: "/", label: "Home" },
