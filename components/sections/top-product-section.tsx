@@ -11,7 +11,7 @@ import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 
 export function TopSellingProduct() {
   return (
-    <section className="w-screen h-auto flex flex-col justify-center items-center space-y-20 my-20">
+    <section className="w-screen h-auto flex flex-col justify-center items-center space-y-32 my-20">
       <h4
         className={`text-6xl text-blue-900 w-[90vw] ${panchoSemibold.className} `}
       >
@@ -21,7 +21,9 @@ export function TopSellingProduct() {
       {/* pet food */}
       <div className="w-screen h-auto flex flex-col space-y-6 justify-center items-center">
         <div className="w-[90vw] flex flex-col space-y-2 justify-start ">
-          <h4 className={`${panchoMedium.className} text-2xl text-blue-900 `}>
+          <h4
+            className={`${panchoMedium.className} text-2xl font-semibold text-blue-900 `}
+          >
             Best Selling Pet Products On Food Cateogory
           </h4>
           <Link
@@ -36,14 +38,14 @@ export function TopSellingProduct() {
             {topSellingPetFoodProducts.map((product, index) => (
               <div
                 key={index}
-                className="shrink-0 flex flex-col justify-center items-center space-y-3 w-72 min-h-96 h-auto p-4 py-8 border rounded-xl"
+                className="shrink-0 flex flex-col justify-center items-center space-y-3 w-72 min-h-96 h-auto p-4 py-8 border rounded-sm"
               >
                 <img
                   className="w-full h-auto "
                   src={product.productImage}
                   alt={product.productName}
                 />
-                <span className="font-semibold text-blue-900">
+                <span className="font-semibold text-blue-900 px-4 text-wrap">
                   {product.productName}
                 </span>
               </div>
@@ -56,12 +58,14 @@ export function TopSellingProduct() {
       {/* pet store */}
       <div className="w-screen h-auto flex flex-col space-y-6 justify-center items-center ">
         <div className="w-[90vw] flex flex-col justify-start ">
-          <h4 className={`${panchoMedium.className} text-2xl text-blue-900 `}>
+          <h4
+            className={`${panchoMedium.className} text-2xl font-semibold  text-blue-900 `}
+          >
             Best Selling Pet Products Related To Food
           </h4>
           <Link
             href={"/store"}
-            className="text-blue-900 font-semibold underline"
+            className="text-blue-900  font-semibold underline"
           >
             go to pet store
           </Link>
@@ -71,14 +75,14 @@ export function TopSellingProduct() {
             {topSellingPetProducts.map((product, index) => (
               <div
                 key={index}
-                className="shrink-0 flex flex-col justify-center items-center space-y-3 w-72 h-auto p-4 py-8 border rounded-xl"
+                className="shrink-0 flex flex-col justify-center items-center space-y-3 w-72 min-h-96 h-auto p-4 py-8 border rounded-sm"
               >
                 <img
                   className="w-full h-auto "
                   src={product.productImage}
                   alt={product.productName}
                 />
-                <span className="font-semibold text-blue-900">
+                <span className="font-semibold text-blue-900 px-4 text-wrap">
                   {product.productName}
                 </span>
               </div>

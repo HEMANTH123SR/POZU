@@ -207,161 +207,144 @@ export const topSellingPetProducts: TopSellingInterface[] = [
   {
     productName: "KONG Classic Dog Toy",
     productImage:
-      "https://images-na.ssl-images-amazon.com/images/I/71s1LRpaprL._AC_SL1500_.jpg",
+      "https://target.scene7.com/is/image/Target/GUEST_9db21104-b02e-4119-a9da-9bda7562cb62?qlt=85&fmt=webp&hei=500&wid=500",
   },
   {
     productName: "Chuckit! Ultra Ball Dog Toy",
     productImage:
-      "https://images-na.ssl-images-amazon.com/images/I/91d4IziWx9L._AC_SL1500_.jpg",
+      "https://target.scene7.com/is/image/Target/GUEST_f4c1fb62-503d-4b05-889c-4180b5b9296e?qlt=85&fmt=webp&hei=500&wid=500",
   },
   {
     productName: "FURminator Deshedding Tool",
     productImage:
-      "https://images-na.ssl-images-amazon.com/images/I/71BzI-DxiHL._AC_SL1500_.jpg",
+      "https://target.scene7.com/is/image/Target/GUEST_5279b6ee-db89-4cb3-9cb4-10409f3d2b62?qlt=85&fmt=webp&hei=500&wid=500",
   },
   {
     productName: "PetSafe Gentle Leader Headcollar",
     productImage:
-      "https://images-na.ssl-images-amazon.com/images/I/81dpNMWc6ML._AC_SL1500_.jpg",
+      "https://target.scene7.com/is/image/Target/GUEST_e5174ebd-2ad2-4316-a6bb-d35c49be56e5?qlt=85&fmt=webp&hei=500&wid=500",
   },
   {
     productName: "Outward Hound Hide-A-Squirrel Puzzle Toy",
     productImage:
-      "https://images-na.ssl-images-amazon.com/images/I/81WlL9bj3EL._AC_SL1500_.jpg",
+      "https://target.scene7.com/is/image/Target/GUEST_ba58a6a9-943b-408d-ae60-a3c3b15e8cdc?qlt=85&fmt=webp&hei=500&wid=500",
   },
-  {
-    productName: "Bissell Pet Hair Eraser Handheld Vacuum",
-    productImage:
-      "https://images-na.ssl-images-amazon.com/images/I/71xMiWzLXzL._AC_SL1500_.jpg",
-  },
+
   {
     productName: "PetSafe Drinkwell Water Fountain",
     productImage:
-      "https://images-na.ssl-images-amazon.com/images/I/81MF4STo4yL._AC_SL1500_.jpg",
+      "https://target.scene7.com/is/image/Target/GUEST_70ef0bab-f9e0-4aee-ba9e-9800cef8c5eb?qlt=85&fmt=webp&hei=500&wid=500",
   },
   {
     productName: "Ruffwear Front Range Dog Harness",
     productImage:
-      "https://images-na.ssl-images-amazon.com/images/I/81QqMAgRb7L._AC_SL1500_.jpg",
+      "https://target.scene7.com/is/image/Target/GUEST_3c9704d3-3873-4737-ac0e-aa5f568dce1d?qlt=85&fmt=webp&hei=500&wid=500",
   },
   {
     productName: "KONG Classic Dog Toy",
     productImage:
-      "https://images-na.ssl-images-amazon.com/images/I/71s1LRpaprL._AC_SL1500_.jpg",
+      "https://target.scene7.com/is/image/Target/GUEST_c745fafd-730c-4012-811e-dfe511a50053?qlt=85&fmt=webp&hei=500&wid=500",
   },
   {
     productName: "Chuckit! Ultra Ball Dog Toy",
     productImage:
-      "https://images-na.ssl-images-amazon.com/images/I/91d4IziWx9L._AC_SL1500_.jpg",
-  },
-  {
-    productName: "FURminator Deshedding Tool",
-    productImage:
-      "https://images-na.ssl-images-amazon.com/images/I/71BzI-DxiHL._AC_SL1500_.jpg",
-  },
-  {
-    productName: "PetSafe Gentle Leader Headcollar",
-    productImage:
-      "https://images-na.ssl-images-amazon.com/images/I/81dpNMWc6ML._AC_SL1500_.jpg",
-  },
-  {
-    productName: "Outward Hound Hide-A-Squirrel Puzzle Toy",
-    productImage:
-      "https://images-na.ssl-images-amazon.com/images/I/81WlL9bj3EL._AC_SL1500_.jpg",
-  },
-  {
-    productName: "Bissell Pet Hair Eraser Handheld Vacuum",
-    productImage:
-      "https://images-na.ssl-images-amazon.com/images/I/71xMiWzLXzL._AC_SL1500_.jpg",
-  },
-  {
-    productName: "PetSafe Drinkwell Water Fountain",
-    productImage:
-      "https://images-na.ssl-images-amazon.com/images/I/81MF4STo4yL._AC_SL1500_.jpg",
-  },
-  {
-    productName: "Ruffwear Front Range Dog Harness",
-    productImage:
-      "https://images-na.ssl-images-amazon.com/images/I/81QqMAgRb7L._AC_SL1500_.jpg",
+      "https://target.scene7.com/is/image/Target/GUEST_15779312-eeeb-4924-979d-b558c503bcf4?qlt=85&fmt=webp&hei=500&wid=500",
   },
   {
     productName: "KONG Classic Dog Toy",
     productImage:
-      "https://images-na.ssl-images-amazon.com/images/I/71s1LRpaprL._AC_SL1500_.jpg",
+      "https://target.scene7.com/is/image/Target/GUEST_4efe8716-9451-484e-b0ea-19a3219fdd87?qlt=85&fmt=webp&hei=500&wid=500",
   },
   {
     productName: "Chuckit! Ultra Ball Dog Toy",
     productImage:
-      "https://images-na.ssl-images-amazon.com/images/I/91d4IziWx9L._AC_SL1500_.jpg",
+      "https://target.scene7.com/is/image/Target/GUEST_f4c1fb62-503d-4b05-889c-4180b5b9296e?qlt=85&fmt=webp&hei=500&wid=500",
   },
   {
     productName: "FURminator Deshedding Tool",
     productImage:
-      "https://images-na.ssl-images-amazon.com/images/I/71BzI-DxiHL._AC_SL1500_.jpg",
+      "https://target.scene7.com/is/image/Target/GUEST_5279b6ee-db89-4cb3-9cb4-10409f3d2b62?qlt=85&fmt=webp&hei=500&wid=500",
   },
   {
     productName: "PetSafe Gentle Leader Headcollar",
     productImage:
-      "https://images-na.ssl-images-amazon.com/images/I/81dpNMWc6ML._AC_SL1500_.jpg",
+      "https://target.scene7.com/is/image/Target/GUEST_e5174ebd-2ad2-4316-a6bb-d35c49be56e5?qlt=85&fmt=webp&hei=500&wid=500",
   },
   {
     productName: "Outward Hound Hide-A-Squirrel Puzzle Toy",
     productImage:
-      "https://images-na.ssl-images-amazon.com/images/I/81WlL9bj3EL._AC_SL1500_.jpg",
+      "https://target.scene7.com/is/image/Target/GUEST_ba58a6a9-943b-408d-ae60-a3c3b15e8cdc?qlt=85&fmt=webp&hei=500&wid=500",
   },
-  {
-    productName: "Bissell Pet Hair Eraser Handheld Vacuum",
-    productImage:
-      "https://images-na.ssl-images-amazon.com/images/I/71xMiWzLXzL._AC_SL1500_.jpg",
-  },
+
   {
     productName: "PetSafe Drinkwell Water Fountain",
     productImage:
-      "https://images-na.ssl-images-amazon.com/images/I/81MF4STo4yL._AC_SL1500_.jpg",
+      "https://target.scene7.com/is/image/Target/GUEST_70ef0bab-f9e0-4aee-ba9e-9800cef8c5eb?qlt=85&fmt=webp&hei=500&wid=500",
   },
   {
     productName: "Ruffwear Front Range Dog Harness",
     productImage:
-      "https://images-na.ssl-images-amazon.com/images/I/81QqMAgRb7L._AC_SL1500_.jpg",
+      "https://target.scene7.com/is/image/Target/GUEST_3c9704d3-3873-4737-ac0e-aa5f568dce1d?qlt=85&fmt=webp&hei=500&wid=500",
   },
   {
     productName: "KONG Classic Dog Toy",
     productImage:
-      "https://images-na.ssl-images-amazon.com/images/I/71s1LRpaprL._AC_SL1500_.jpg",
+      "https://target.scene7.com/is/image/Target/GUEST_c745fafd-730c-4012-811e-dfe511a50053?qlt=85&fmt=webp&hei=500&wid=500",
   },
   {
     productName: "Chuckit! Ultra Ball Dog Toy",
     productImage:
-      "https://images-na.ssl-images-amazon.com/images/I/91d4IziWx9L._AC_SL1500_.jpg",
+      "https://target.scene7.com/is/image/Target/GUEST_15779312-eeeb-4924-979d-b558c503bcf4?qlt=85&fmt=webp&hei=500&wid=500",
+  },
+  {
+    productName: "KONG Classic Dog Toy",
+    productImage:
+      "https://target.scene7.com/is/image/Target/GUEST_9db21104-b02e-4119-a9da-9bda7562cb62?qlt=85&fmt=webp&hei=500&wid=500",
+  },
+  {
+    productName: "Chuckit! Ultra Ball Dog Toy",
+    productImage:
+      "https://target.scene7.com/is/image/Target/GUEST_f4c1fb62-503d-4b05-889c-4180b5b9296e?qlt=85&fmt=webp&hei=500&wid=500",
   },
   {
     productName: "FURminator Deshedding Tool",
     productImage:
-      "https://images-na.ssl-images-amazon.com/images/I/71BzI-DxiHL._AC_SL1500_.jpg",
+      "https://target.scene7.com/is/image/Target/GUEST_5279b6ee-db89-4cb3-9cb4-10409f3d2b62?qlt=85&fmt=webp&hei=500&wid=500",
   },
   {
     productName: "PetSafe Gentle Leader Headcollar",
     productImage:
-      "https://images-na.ssl-images-amazon.com/images/I/81dpNMWc6ML._AC_SL1500_.jpg",
+      "https://target.scene7.com/is/image/Target/GUEST_e5174ebd-2ad2-4316-a6bb-d35c49be56e5?qlt=85&fmt=webp&hei=500&wid=500",
   },
   {
     productName: "Outward Hound Hide-A-Squirrel Puzzle Toy",
     productImage:
-      "https://images-na.ssl-images-amazon.com/images/I/81WlL9bj3EL._AC_SL1500_.jpg",
+      "https://target.scene7.com/is/image/Target/GUEST_ba58a6a9-943b-408d-ae60-a3c3b15e8cdc?qlt=85&fmt=webp&hei=500&wid=500",
   },
-  {
-    productName: "Bissell Pet Hair Eraser Handheld Vacuum",
-    productImage:
-      "https://images-na.ssl-images-amazon.com/images/I/71xMiWzLXzL._AC_SL1500_.jpg",
-  },
+
   {
     productName: "PetSafe Drinkwell Water Fountain",
     productImage:
-      "https://images-na.ssl-images-amazon.com/images/I/81MF4STo4yL._AC_SL1500_.jpg",
+      "https://target.scene7.com/is/image/Target/GUEST_70ef0bab-f9e0-4aee-ba9e-9800cef8c5eb?qlt=85&fmt=webp&hei=500&wid=500",
   },
   {
     productName: "Ruffwear Front Range Dog Harness",
     productImage:
-      "https://images-na.ssl-images-amazon.com/images/I/81QqMAgRb7L._AC_SL1500_.jpg",
+      "https://target.scene7.com/is/image/Target/GUEST_3c9704d3-3873-4737-ac0e-aa5f568dce1d?qlt=85&fmt=webp&hei=500&wid=500",
+  },
+  {
+    productName: "KONG Classic Dog Toy",
+    productImage:
+      "https://target.scene7.com/is/image/Target/GUEST_c745fafd-730c-4012-811e-dfe511a50053?qlt=85&fmt=webp&hei=500&wid=500",
+  },
+  {
+    productName: "Chuckit! Ultra Ball Dog Toy",
+    productImage:
+      "https://target.scene7.com/is/image/Target/GUEST_15779312-eeeb-4924-979d-b558c503bcf4?qlt=85&fmt=webp&hei=500&wid=500",
+  },
+  {
+    productName: "KONG Classic Dog Toy",
+    productImage:
+      "https://target.scene7.com/is/image/Target/GUEST_4efe8716-9451-484e-b0ea-19a3219fdd87?qlt=85&fmt=webp&hei=500&wid=500",
   },
 ];
