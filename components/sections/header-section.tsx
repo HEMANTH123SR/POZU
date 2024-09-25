@@ -9,7 +9,7 @@ import { IoMdNotifications } from "react-icons/io";
 export const Header = () => {
   const pathname = usePathname();
   return (
-    <header className="w-full flex flex-col justify-center items-center shadow-2xl">
+    <header className="w-full flex flex-col justify-center items-center shadow-2xl fixed top-0 left-0 right-0 bg-white z-50">
       <nav className="w-full flex justify-start items-center bg-[#D1D4D8] overflow-x-auto">
         {[
           { href: "/", label: "Home" },
@@ -32,8 +32,14 @@ export const Header = () => {
         ))}
       </nav>
       <div className="w-full flex flex-wrap justify-between items-center mt-0.5 px-4 sm:px-6 lg:px-12 py-4 border-b">
-        <h1 className={`${cutAlong.className} text-4xl text-blue-900`}>POZU</h1>
-        <div className="flex flex-wrap justify-center items-center gap-4 sm:gap-6 lg:gap-10 mt-4 sm:mt-0">
+        <div className="flex space-x-1 justify-center items-center">
+          <img className="h-11 w-auto" src="/c.png" alt="Pozu Logo" />
+          <h1 className={`${cutAlong.className} text-5xl text-blue-900`}>
+            POZU
+          </h1>
+        </div>
+
+        <div className="flex flex-wrap justify-center items-center gap-4 sm:gap-6 lg:gap-10 mt-4 sm:mt-0 font-semibold">
           <button className="flex justify-center items-center space-x-1 text-blue-900">
             <span>Help</span>
             <BiSolidMessageDetail className="text-2xl" />
