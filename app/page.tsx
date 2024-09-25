@@ -1,6 +1,6 @@
 import { panchoSemibold } from "@/app/fonts/font";
-import { DogSliderComponent } from "@/components/dog-slider";
-import { TopSellingProduct } from "@/components/best-selling-product";
+import { DogSliderComponent } from "@/components/sections/dog-slider";
+import { TopSellingProduct } from "@/components/sections/best-selling-product";
 export default function Home() {
   return (
     <div className="h-full  flex flex-col overflow-x-hidden ">
