@@ -167,8 +167,10 @@ const features = [
   },
 ];
 
-const FeatureVideo = ({ src, alt }) => {
-  const videoRef = useRef(null);
+
+
+const FeatureVideo = ({ src, alt }: { src: string; alt: string }) => {
+  const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
     if (videoRef.current) {
