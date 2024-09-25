@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Header } from "@/components/sections/header";
+import { Header } from "@/components/sections/header-section";
 import { apercuRegular } from "@/app/fonts/font";
 import "./globals.css";
 

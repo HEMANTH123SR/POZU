@@ -1,6 +1,7 @@
 import { panchoSemibold } from "@/app/fonts/font";
 import { DogSliderComponent } from "@/components/sections/dog-slider";
-import { TopSellingProduct } from "@/components/sections/best-selling-product";
+import { TopSellingProduct } from "@/components/sections/top-product-section";
+import { FeatureSection } from "@/components/sections/feature-section";
 export default function Home() {
   return (
     <div className="h-full  flex flex-col overflow-x-hidden ">
@@ -20,6 +21,7 @@ export default function Home() {
           </div>
         </div>
       </div>
+      <FeatureSection />
       <DogSliderComponent />
       <TopSellingProduct />
     </div>
