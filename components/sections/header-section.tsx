@@ -41,7 +41,7 @@ export const Header = () => {
   }, [lastScrollY]);
 
   return (
-    <header className="w-full flex flex-col justify-center items-center shadow-2xl fixed top-0 left-0 right-0 bg-white z-50">
+    <header className="w-full flex flex-col justify-center items-center fixed top-0 left-0 right-0 bg-white z-50">
       {showNav && (
         <nav className="w-full flex justify-start items-center bg-[#D1D4D8] overflow-x-auto transition-all duration-300">
           {[
