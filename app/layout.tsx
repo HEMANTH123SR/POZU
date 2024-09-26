@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Header } from "@/components/sections/header-section";
+import { FooterSection } from "@/components/sections/fotter-section";
 import { apercuRegular } from "@/app/fonts/font";
 import "./globals.css";
 
@@ -19,6 +20,7 @@ export default function RootLayout({
       <body className={`${apercuRegular.className} flex flex-col  bg-white `}>
         <Header />
         {children}
+        <FooterSection />
       </body>
     </html>
   );
