@@ -7,6 +7,7 @@ import { BiSolidMessageDetail } from "react-icons/bi";
 import { PiShoppingCartSimpleFill } from "react-icons/pi";
 import { IoMdNotifications } from "react-icons/io";
 import { Cart } from "@/components/component/cart";
+import { SignInButton, SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
 export const Header = () => {
   const pathname = usePathname();
   const [showNav, setShowNav] = useState(true);
@@ -90,9 +91,17 @@ export const Header = () => {
               <PiShoppingCartSimpleFill className="text-2xl" />
             </button>
 
-            <Link href="/sign-in" className="text-blue-900">
+            {/* <Link href="/sign-in" className="text-blue-900">
               Login
-            </Link>
+            </Link> */}
+            <div className="flex justify-center items-center text-blue-900">
+              <SignedOut>
+                <SignInButton />
+              </SignedOut>
+              <SignedIn>
+                <UserButton />
+              </SignedIn>
+            </div>
             <button
               className={`bg-blue-900 text-white px-3 py-2 ${apercuRegular.className}`}
             >

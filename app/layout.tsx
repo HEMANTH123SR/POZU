@@ -3,7 +3,7 @@ import { Header } from "@/components/sections/header-section";
 import { FooterSection } from "@/components/sections/fotter-section";
 import { apercuRegular } from "@/app/fonts/font";
 import "./globals.css";
-
+import { ClerkProvider } from "@clerk/nextjs";
 export const metadata: Metadata = {
   title: "Pozu - Connecting Pet Lovers with Pets, Supplies, and Services",
   description:
@@ -16,12 +16,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${apercuRegular.className} flex flex-col  bg-white `}>
-        <Header />
-        {children}
-        <FooterSection />
-      </body>
-    </html>
+    <ClerkProvider>
+      <html lang="en">
+        <body className={`${apercuRegular.className} flex flex-col  bg-white `}>
+          <Header />
+          {children}
+          <FooterSection />
+        </body>
+      </html>
+    </ClerkProvider>
   );
 }
