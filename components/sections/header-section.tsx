@@ -91,9 +91,7 @@ export const Header = () => {
               <PiShoppingCartSimpleFill className="text-2xl" />
             </button>
 
-            {/* <Link href="/sign-in" className="text-blue-900">
-              Login
-            </Link> */}
+            
             <div className="flex justify-center items-center text-blue-900">
               <SignedOut>
                 <SignInButton />
