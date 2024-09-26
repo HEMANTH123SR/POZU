@@ -1,6 +1,6 @@
 import * as React from "react";
 import Link from "next/link";
-import { panchoSemibold, panchoMedium } from "@/app/fonts/font";
+import { panchoSemibold,apercuBold, apercuRegular } from "@/app/fonts/font";
 
 import {
   topSellingPetFoodProducts,
@@ -11,9 +11,9 @@ import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 
 export function TopSellingProduct() {
   return (
-    <section className="w-screen h-auto flex flex-col justify-center items-center space-y-32 my-20">
+    <section className="w-screen h-auto bg-blue-900 flex flex-col justify-center items-center space-y-20 py-20">
       <h4
-        className={`text-6xl text-blue-900 w-[90vw] ${panchoSemibold.className} `}
+        className={`text-6xl text-white underline w-[90vw] ${panchoSemibold.className} `}
       >
         Best Selling Pet Products
       </h4>
@@ -22,14 +22,11 @@ export function TopSellingProduct() {
       <div className="w-screen h-auto flex flex-col space-y-6 justify-center items-center">
         <div className="w-[90vw] flex flex-col space-y-2 justify-start ">
           <h4
-            className={`${panchoMedium.className} text-2xl font-semibold text-blue-900 `}
+            className={`${apercuBold.className} text-2xl font-semibold text-white `}
           >
             Best Selling Pet Products On Food Cateogory
           </h4>
-          <Link
-            href={"/food"}
-            className="text-blue-900 font-semibold underline"
-          >
+          <Link href={"/food"} className="text-white font-semibold underline">
             go to pet section
           </Link>
         </div>
@@ -38,7 +35,7 @@ export function TopSellingProduct() {
             {topSellingPetFoodProducts.map((product, index) => (
               <div
                 key={index}
-                className="shrink-0 flex flex-col justify-center items-center space-y-3 w-72 min-h-96 h-auto p-4 py-8 border rounded-sm"
+                className="shrink-0 bg-white flex flex-col justify-center items-center space-y-3 w-72 min-h-96 h-auto p-4 py-8 border rounded-sm"
               >
                 <img
                   className="w-full h-auto "
@@ -59,14 +56,11 @@ export function TopSellingProduct() {
       <div className="w-screen h-auto flex flex-col space-y-6 justify-center items-center ">
         <div className="w-[90vw] flex flex-col justify-start ">
           <h4
-            className={`${panchoMedium.className} text-2xl font-semibold  text-blue-900 `}
+            className={`${apercuBold.className} text-2xl font-semibold  text-white `}
           >
             Best Selling Pet Products Related To Food
           </h4>
-          <Link
-            href={"/store"}
-            className="text-blue-900  font-semibold underline"
-          >
+          <Link href={"/store"} className="text-white  font-semibold underline">
             go to pet store
           </Link>
         </div>
@@ -75,7 +69,7 @@ export function TopSellingProduct() {
             {topSellingPetProducts.map((product, index) => (
               <div
                 key={index}
-                className="shrink-0 flex flex-col justify-center items-center space-y-3 w-72 min-h-96 h-auto p-4 py-8 border rounded-sm"
+                className="shrink-0 bg-white flex flex-col justify-center items-center space-y-3 w-72 min-h-96 h-auto p-4 py-8 border rounded-sm"
               >
                 <img
                   className="w-full h-auto "
