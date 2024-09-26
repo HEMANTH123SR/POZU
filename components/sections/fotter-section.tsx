@@ -257,7 +257,7 @@ export const FooterSection = () => {
               <span>&middot;</span>
 
               <a
-                className="inline-block text-teal-600 underline transition hover:text-teal-600/75"
+                className="inline-block text-blue-900 underline transition hover:text-blue-900/75"
                 href="#"
               >
                 Privacy Policy
