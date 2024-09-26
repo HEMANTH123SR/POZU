@@ -1,7 +1,7 @@
 import { panchoSemibold } from "@/app/fonts/font";
 const ServicesPage = () => {
   return (
-    <div className="h-screen w-screen flex justify-center items-center">
+    <div className="h-screen w-full flex justify-center items-center">
       <h1
         className={`text-6xl ${panchoSemibold.className} capitalize text-blue-900`}
       >
