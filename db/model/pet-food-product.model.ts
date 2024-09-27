@@ -1,7 +1,6 @@
 import mongoose from "mongoose";
 const { Schema } = mongoose;
 
-// Define the schema for the pet food product
 const PetFoodProductSchema = new Schema({
   name: {
     type: String,
@@ -27,12 +26,22 @@ const PetFoodProductSchema = new Schema({
   },
   category: {
     type: String,
-    enum: ["Dry Food", "Wet Food", "Raw Food", "Treats"],
+    enum: ["Dry Food", "Wet Food", "Raw Food", "Freeze-Dried", "Dehydrated", "Treats", "Supplements"],
     required: true,
   },
   petType: {
     type: String,
-    enum: ["Dog", "Cat", "Bird", "Small Animal", "Reptile"],
+    enum: ["Dog", "Cat", "Bird", "Small Animal", "Reptile", "Fish"],
+    required: true,
+  },
+  breedSize: {
+    type: String,
+    enum: ["All Sizes", "Small", "Medium", "Large", "Giant"],
+    default: "All Sizes",
+  },
+  lifestage: {
+    type: String,
+    enum: ["All Life Stages", "Puppy/Kitten", "Adult", "Senior", "Pregnant/Nursing"],
     required: true,
   },
   dietaryNeeds: {
@@ -40,12 +49,20 @@ const PetFoodProductSchema = new Schema({
     enum: [
       "Grain-Free",
       "High-Protein",
+      "Low-Fat",
       "Weight Management",
       "Sensitive Stomach",
       "Hypoallergenic",
-      "Senior",
+      "Limited Ingredient",
+      "Organic",
+      "Natural",
+      "Prescription",
     ],
     default: [],
+  },
+  flavorProfile: {
+    type: [String],
+    required: true,
   },
   ingredients: {
     type: [String],
@@ -67,11 +84,41 @@ const PetFoodProductSchema = new Schema({
     fiberContent: {
       type: String,
     },
+    moistureContent: {
+      type: String,
+    },
+    omega3: String,
+    omega6: String,
+    taurine: String,
+    glucosamine: String,
+    chondroitin: String,
+  },
+  guaranteedAnalysis: {
+    type: Map,
+    of: String,
   },
   packagingSize: {
     type: String, // e.g., '5 lbs', '12 kg', '500g'
     required: true,
   },
+  packagingType: {
+    type: String,
+    enum: ["Bag", "Can", "Pouch", "Box", "Tub"],
+    required: true,
+  },
+  servingSize: {
+    type: String,
+    required: true,
+  },
+  feedingInstructions: {
+    type: String,
+    required: true,
+  },
+  shelfLife: String,
+  storageInstructions: String,
+  madeIn: String,
+  certifications: [String], // e.g., "AAFCO", "Organic", "Non-GMO"
+  allergenInfo: [String],
   inStock: {
     type: Boolean,
     default: true,
@@ -96,6 +143,19 @@ const PetFoodProductSchema = new Schema({
       default: 0,
     },
   },
+  featuredProduct: {
+    type: Boolean,
+    default: false,
+  },
+  discount: {
+    percentage: Number,
+    validUntil: Date,
+  },
+  tags: [String],
+  relatedProducts: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'PetFoodProduct'
+  }],
   createdAt: {
     type: Date,
     default: Date.now,
