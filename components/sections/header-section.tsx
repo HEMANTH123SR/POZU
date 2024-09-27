@@ -5,7 +5,6 @@ import { usePathname } from "next/navigation";
 import { panchoSemibold, cutAlong, apercuRegular } from "@/app/fonts/font";
 import { BiSolidMessageDetail } from "react-icons/bi";
 import { PiShoppingCartSimpleFill } from "react-icons/pi";
-import { IoMdNotifications } from "react-icons/io";
 import { Cart } from "@/components/component/cart";
 import { SignInButton, SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
 export const Header = () => {
@@ -67,21 +66,17 @@ export const Header = () => {
           </nav>
         )}
         <div className="w-full flex flex-wrap justify-between items-center mt-0.5 px-4 sm:px-6 lg:px-12 py-4 border-b">
-          <div className="flex space-x-1 justify-center items-center">
-            <img className="h-11 w-auto" src="/c.png" alt="Pozu Logo" />
-            <h1 className={`${cutAlong.className} text-5xl text-blue-900`}>
+          <Link href={"/"} className="flex space-x-1 justify-center items-center">
+            <img className="h-14 w-auto rotate-90" src="/logo-1.png" alt="Pozu Logo" />
+            <h1 className={`${cutAlong.className} text-4xl text-blue-900 pb-1 `}>
               POZU
             </h1>
-          </div>
+          </Link>
 
           <div className="flex flex-wrap justify-center items-center gap-4 sm:gap-6 lg:gap-10 mt-4 sm:mt-0 font-semibold">
             <button className="flex justify-center items-center space-x-1 text-blue-900">
               <span>Help</span>
               <BiSolidMessageDetail className="text-2xl" />
-            </button>
-            <button className="flex justify-center items-center space-x-1 text-blue-900">
-              <span>Notification</span>
-              <IoMdNotifications className="text-2xl" />
             </button>
             <button
               className="flex justify-center items-center space-x-1 text-blue-900"
@@ -91,9 +86,10 @@ export const Header = () => {
               <PiShoppingCartSimpleFill className="text-2xl" />
             </button>
 
-            
+           
             <div className="flex justify-center items-center text-blue-900">
               <SignedOut>
+               
                 <SignInButton />
               </SignedOut>
               <SignedIn>

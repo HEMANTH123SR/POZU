@@ -1,7 +1,6 @@
 import mongoose from "mongoose";
 const { Schema } = mongoose;
 
-// Define the schema for the general pet product
 const PetProductSchema = new Schema({
   name: {
     type: String,
@@ -34,6 +33,9 @@ const PetProductSchema = new Schema({
       "Healthcare",
       "Bedding",
       "Training",
+      "Food",
+      "Treats",
+      "Other"
     ],
     required: true,
   },
@@ -51,7 +53,8 @@ const PetProductSchema = new Schema({
     required: false,
   },
   size: {
-    type: String, // e.g., 'Small', 'Medium', 'Large'
+    type: String, 
+    enum: ["X-Small", "Small", "Medium", "Large", "X-Large"],
     required: false,
   },
   weight: {
@@ -63,8 +66,8 @@ const PetProductSchema = new Schema({
     maxlength: 1000,
   },
   ageGroup: {
-    type: [String], // e.g., 'Puppy', 'Adult', 'Senior'
-    enum: ["Puppy/Kitten", "Adult", "Senior"],
+    type: [String],
+    enum: ["Puppy/Kitten", "Adult", "Senior", "All Ages"],
     default: ["Adult"],
   },
   inStock: {
@@ -90,6 +93,37 @@ const PetProductSchema = new Schema({
       type: Number,
       default: 0,
     },
+  },
+  features: [String], // Array of product features
+  ingredients: [String], // For food and treats
+  nutritionalInfo: {
+    type: Map,
+    of: String
+  },
+  allergens: [String],
+  safetyWarnings: [String],
+  compatibleWith: [String], // e.g., specific breeds or other products
+  manufacturer: {
+    name: String,
+    contact: String,
+    website: String
+  },
+  origin: String, // Country of origin
+  warranty: {
+    available: Boolean,
+    length: String,
+    details: String
+  },
+  returnsPolicy: String,
+  certifications: [String], // e.g., "Organic", "Eco-friendly"
+  tags: [String], // For improved searchability
+  relatedProducts: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'PetProduct'
+  }],
+  discount: {
+    percentage: Number,
+    validUntil: Date
   },
   createdAt: {
     type: Date,
