@@ -1,6 +1,6 @@
 import * as React from "react";
 import Link from "next/link";
-import { panchoSemibold,apercuBold, apercuRegular } from "@/app/fonts/font";
+import { panchoSemibold,apercuBold,  } from "@/app/fonts/font";
 
 import {
   topSellingPetFoodProducts,
