@@ -5,7 +5,7 @@ export const HeroSectin = () => {
     <section className="relative  h-[90vh] sm:h-screen w-full">
       <video
         className="absolute top-0 left-0 w-full h-full object-cover"
-        src="/hero-video-two.mp4"
+        src="/hero-one.mp4"
         autoPlay
         muted
         loop
