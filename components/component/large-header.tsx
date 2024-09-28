@@ -41,7 +41,7 @@ export const LargeHeader = () => {
 
   return (
     <>
-      <header className="w-full flex flex-col justify-center items-center fixed top-0 left-0 right-0 bg-white md:bg-tea lg:bg-blue-500 xl:bg-yellow-500  2xl:bg-red-900 z-50">
+      <header className="w-full flex flex-col justify-center items-center fixed top-0 left-0 right-0 bg-white  z-50">
         {showNav && (
           <nav className="w-full flex justify-start items-center bg-[#D1D4D8] overflow-x-auto transition-all duration-300">
             {[
@@ -82,13 +82,13 @@ export const LargeHeader = () => {
             </h1>
           </Link>
 
-          <div className="flex flex-wrap justify-center items-center gap-4 sm:gap-6 lg:gap-10 mt-4 sm:mt-0 font-semibold border-t">
-            <button className="flex justify-center items-center space-x-1 text-blue-900 border">
+          <div className="flex flex-wrap justify-center items-center gap-4 sm:gap-6 lg:gap-10 mt-4 sm:mt-0 font-semibold">
+            <button className="flex justify-center items-center space-x-1 text-blue-900 ">
               <span>Help</span>
               <BiSolidMessageDetail className="text-2xl" />
             </button>
             <button
-              className="flex justify-center items-center border space-x-1 text-blue-900"
+              className="flex justify-center items-center  space-x-1 text-blue-900"
               onClick={() => setOpen(true)}
             >
               <span>Cart</span>
