@@ -1,5 +1,6 @@
 "use client";
-import { cutAlong } from "@/app/fonts/font";
+import React from "react";
+import { cutAlong, panchoSemibold } from "@/app/fonts/font";
 import {
   Accordion,
   AccordionContent,
@@ -7,75 +8,74 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 
-export const FaqSection = () => {
+interface FaqItem {
+  question: string;
+  answer: string;
+}
+
+const faqItems: FaqItem[] = [
+  {
+    question: "What is Pozu?",
+    answer:
+      "Pozu is a comprehensive platform where users can list pets for sale, adopt pets, find pet services like vets or groomers, and shop for pet-related products.",
+  },
+  {
+    question: "What features does Pozu offer?",
+    answer:
+      "Pozu provides options to list and adopt pets, find pet services near you, purchase pet goods, and access helpful resources for pet care.",
+  },
+  {
+    question: "Is there a fee to list my pet for sale?",
+    answer:
+      "Yes, Pozu charges a small fee for pet listings. However, adopting pets is free!",
+  },
+  {
+    question: "How do I get started on Pozu?",
+    answer:
+      "Visit https://pozu.com and create an account. You can start listing or browsing pets and services right away!",
+  },
+  {
+    question: "Can I review pet services on Pozu?",
+    answer:
+      "Yes! After using a service, you can leave a review to help others find the best options for their pets.",
+  },
+  {
+    question: "How can I contact Pozu support?",
+    answer:
+      "You can reach out to our support team via the contact form on the website or email us at support@pozu.com.",
+  },
+];
+
+export const FaqSection: React.FC = () => {
   return (
-    <div className="w-screen border-t-4 border-blue-900">
-      <section className="w-screen flex flex-col justify-center items-center border-y-4 bg-blue-900 border-white py-24">
-        <div className="flex flex-col justify-center items-center w-9/12 space-y-8">
-          <h4 className={`text-7xl ${cutAlong.className} text-white`}>
-            {" "}
-            FAQ - POZU
-          </h4>
-          <Accordion type="single" collapsible className="w-full ">
-            <AccordionItem value="item-1">
-              <AccordionTrigger className="text-left">
-                What is Pozu?
+    <section className="w-full bg-white border-t-4 border-blue-900 py-16 sm:py-24">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2
+          className={`text-4xl sm:text-5xl lg:text-6xl ${cutAlong.className} text-blue-900 text-center mb-12`}
+        >
+          FAQ - POZU
+        </h2>
+        <Accordion type="single" collapsible className="w-full space-y-4">
+          {faqItems.map((item, index) => (
+            <AccordionItem
+              key={index}
+              value={`item-${index + 1}`}
+              className="border border-blue-200 rounded-lg overflow-hidden"
+            >
+              <AccordionTrigger
+                className={`text-left p-4 text-blue-900 ${panchoSemibold.className} text-lg sm:text-xl hover:no-underline hover:bg-blue-50 transition-colors duration-200`}
+              >
+                {item.question}
               </AccordionTrigger>
-              <AccordionContent>
-                Pozu is a platform where users can list pets for sale, adopt
-                pets, find pet services like vets or groomers, and shop for
-                pet-related products.
+              <AccordionContent className="p-4 text-blue-800 bg-blue-50">
+                {item.answer}
               </AccordionContent>
             </AccordionItem>
-            <AccordionItem value="item-2">
-              <AccordionTrigger className="text-left">
-                What features does Pozu offer?
-              </AccordionTrigger>
-              <AccordionContent>
-                Pozu provides options to list and adopt pets, find pet services
-                near you, purchase pet goods, and access helpful resources for
-                pet care.
-              </AccordionContent>
-            </AccordionItem>
-            <AccordionItem value="item-3">
-              <AccordionTrigger className="text-left">
-                Is there a fee to list my pet for sale?
-              </AccordionTrigger>
-              <AccordionContent>
-                Yes, Pozu charges a small fee for pet listings. However,
-                adopting pets is free!
-              </AccordionContent>
-            </AccordionItem>
-            <AccordionItem value="item-4">
-              <AccordionTrigger className="text-left">
-                How do I get started on Pozu?
-              </AccordionTrigger>
-              <AccordionContent>
-                Visit https://pozu.com and create an account. You can start
-                listing or browsing pets and services right away!
-              </AccordionContent>
-            </AccordionItem>
-            <AccordionItem value="item-5">
-              <AccordionTrigger className="text-left">
-                Can I review pet services on Pozu?
-              </AccordionTrigger>
-              <AccordionContent>
-                Yes! After using a service, you can leave a review to help
-                others find the best options for their pets.
-              </AccordionContent>
-            </AccordionItem>
-            <AccordionItem value="item-6">
-              <AccordionTrigger className="text-left">
-                How can I contact Pozu support?
-              </AccordionTrigger>
-              <AccordionContent>
-                You can reach out to our support team via the contact form on
-                the website or email us at support@pozu.com.
-              </AccordionContent>
-            </AccordionItem>
-          </Accordion>
-        </div>
-      </section>
-    </div>
+          ))}
+        </Accordion>
+      </div>
+    </section>
   );
 };
+
+export default FaqSection;
