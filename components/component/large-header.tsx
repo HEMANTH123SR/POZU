@@ -82,13 +82,13 @@ export const LargeHeader = () => {
             </h1>
           </Link>
 
-          <div className="flex flex-wrap justify-center items-center gap-4 sm:gap-6 lg:gap-10 mt-4 sm:mt-0 font-semibold">
-            <button className="flex justify-center items-center space-x-1 text-blue-900">
+          <div className="flex flex-wrap justify-center items-center gap-4 sm:gap-6 lg:gap-10 mt-4 sm:mt-0 font-semibold border-t">
+            <button className="flex justify-center items-center space-x-1 text-blue-900 border">
               <span>Help</span>
               <BiSolidMessageDetail className="text-2xl" />
             </button>
             <button
-              className="flex justify-center items-center space-x-1 text-blue-900"
+              className="flex justify-center items-center border space-x-1 text-blue-900"
               onClick={() => setOpen(true)}
             >
               <span>Cart</span>

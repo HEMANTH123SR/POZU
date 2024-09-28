@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import { apercuRegular, cutAlong } from "@/app/fonts/font";
 import { X } from "lucide-react";
 import { SignInButton, SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
+import { PiEqualsBold } from "react-icons/pi";
 
 export const SmallHeader = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -40,7 +41,7 @@ export const SmallHeader = () => {
       } ${apercuRegular.className}`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center border-b-2 border-gray-100 py-4 md:py-6">
+        <div className="flex justify-between items-center border-b-2 border-gray-100 py-2.5 md:py-6">
           <div className="flex justify-start lg:w-0 lg:flex-1">
             <a href="/" className="flex items-center">
               <img
@@ -68,23 +69,9 @@ export const SmallHeader = () => {
             >
               <span className="sr-only">Open menu</span>
               {isMenuOpen ? (
-                <X className="h-6 w-6" aria-hidden="true" />
+                <X className="h-10 w-auto text-blue-900" aria-hidden="true" />
               ) : (
-                <svg
-                  className="h-6 w-6"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  aria-hidden="true"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M4 6h16M4 12h16M4 18h16"
-                  />
-                </svg>
+                <PiEqualsBold className="h-10 w-auto text-blue-900" />
               )}
             </button>
           </div>
@@ -119,7 +106,10 @@ export const SmallHeader = () => {
                     onClick={() => setIsMenuOpen(false)}
                   >
                     <span className="sr-only">Close menu</span>
-                    <X className="h-6 w-6" aria-hidden="true" />
+                    <X
+                      className="h-8 w-auto text-blue-900"
+                      aria-hidden="true"
+                    />
                   </button>
                 </div>
               </div>
@@ -131,7 +121,7 @@ export const SmallHeader = () => {
                       href={item.href}
                       className="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50"
                     >
-                      <span className="ml-3 text-base font-medium text-gray-900">
+                      <span className="ml-3 text-base font-semibold text-gray-900">
                         {item.label}
                       </span>
                     </a>
@@ -164,7 +154,7 @@ export const SmallHeader = () => {
                 <p className="mt-6 text-center text-base font-medium text-gray-500">
                   <SignedOut>
                     <SignInButton mode="modal">
-                      <button className="text-blue-900 hover:text-blue-950">
+                      <button className="text-blue-900 font-semibold hover:text-blue-950">
                         Sign in
                       </button>
                     </SignInButton>
