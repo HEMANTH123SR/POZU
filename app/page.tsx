@@ -1,5 +1,5 @@
 import { HeroSectin } from "@/components/sections/hero-section";
-import { DogSliderComponent } from "@/components/sections/dog-slider";
+import { TestimonialSection } from "@/components/sections/testiomonial-section";
 import { TopSellingProduct } from "@/components/sections/top-product-section";
 import { FeatureSection } from "@/components/sections/feature-section";
 import { FaqSection } from "@/components/sections/faq-section";
@@ -8,7 +8,7 @@ export default function Home() {
     <div className="h-full flex flex-col overflow-x-hidden">
       <HeroSectin />
       <FeatureSection />
-      <DogSliderComponent />
+      <TestimonialSection />
       <TopSellingProduct />
       <FaqSection />
     </div>
