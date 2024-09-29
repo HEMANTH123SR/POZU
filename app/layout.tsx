@@ -4,6 +4,8 @@ import { FooterSection } from "@/components/sections/fotter-section";
 import { apercuRegular } from "@/app/fonts/font";
 import "./globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
+import { Toaster } from "@/components/ui/toaster";
+
 export const metadata: Metadata = {
   title: "Pozu - Connecting Pet Lovers with Pets, Supplies, and Services",
   description:
@@ -22,6 +24,7 @@ export default function RootLayout({
           <Header />
           {children}
           <FooterSection />
+          <Toaster />
         </body>
       </html>
     </ClerkProvider>

@@ -1,16 +1,19 @@
 "use client";
 import React, { useState, ChangeEvent } from "react";
-
-import {
-  ChevronLeft,
-  ChevronRight,
-  Camera,
-  DollarSign,
-  CalendarDays,
-  HeartPulse,
-} from "lucide-react";
+import { ChevronLeft, ChevronRight, DollarSign, CalendarDays, HeartPulse } from "lucide-react";
+import { useToast } from "@/hooks/use-toast";
+import { createImage } from "@/lib/appwrite";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Checkbox } from "@/components/ui/checkbox";
+import { Label } from "@/components/ui/label";
+import { Progress } from "@/components/ui/progress";
 
 const PetForm = () => {
+  const { toast } = useToast();
   const [step, setStep] = useState(1);
   const [formData, setFormData] = useState({
     name: "",
@@ -38,7 +41,14 @@ const PetForm = () => {
     availabilityDate: "",
     description: "",
     sellerNotes: "",
+    coverImage: "",
+    imageUrl: [] as string[],
   });
+
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState("");
+  const [coverImageFile, setCoverImageFile] = useState<File | null>(null);
+  const [additionalImageFiles, setAdditionalImageFiles] = useState<File[]>([]);
 
   const handleInputChange = (
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
@@ -51,13 +61,119 @@ const PetForm = () => {
       [name]: type === "checkbox" ? checked : value,
     }));
   };
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Handle form submission logic here
-    console.log("Form submitted:", formData);
+  const handleCoverImageChange = (e: ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files && e.target.files[0]) {
+      setCoverImageFile(e.target.files[0]);
+    }
   };
 
+  const handleAdditionalImagesChange = (e: ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files) {
+      setAdditionalImageFiles(Array.from(e.target.files));
+    }
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitError("");
+
+    try {
+      // Upload cover image
+      let coverImageId = "";
+      if (coverImageFile) {
+        const coverImageResult = await createImage(coverImageFile);
+        if (coverImageResult.status === "success" && coverImageResult.id) {
+          coverImageId = coverImageResult.id;
+        } else {
+          throw new Error("Failed to upload cover image");
+        }
+      }
+
+      // Upload additional images
+      const additionalImageIds: string[] = [];
+      for (const file of additionalImageFiles) {
+        const result = await createImage(file);
+        if (result.status === "success" && result.id) {
+          additionalImageIds.push(result.id);
+        } else {
+          throw new Error("Failed to upload additional image");
+        }
+      }
+
+      // Prepare the final form data
+      const finalFormData = {
+        ...formData,
+        coverImage: coverImageId,
+        imageUrl: additionalImageIds,
+      };
+
+      // Send the data to your API
+      const response = await fetch("/api/list-your-pet", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(finalFormData),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to submit pet data");
+      }
+
+      const data = await response.json();
+      console.log("Pet submitted successfully:", data);
+      toast({
+        title: "Success",
+        description: "Pet listed successfully!",
+      });
+
+      // Reset form
+      setFormData({
+        // Reset to initial state
+        name: "",
+        breed: "",
+        species: "",
+        age: "",
+        gender: "",
+        color: "",
+        height: "",
+        weight: "",
+        vaccinated: false,
+        spayedNeutered: false,
+        medicalHistory: "",
+        currentMedications: "",
+        dietaryRestrictions: "",
+        exerciseNeeds: "",
+        groomingNeeds: "",
+        temperament: "",
+        trainingLevel: "",
+        socialization: "",
+        specialNeeds: "",
+        allergies: "",
+        microchipNumber: "",
+        price: "",
+        availabilityDate: "",
+        description: "",
+        sellerNotes: "",
+        coverImage: "",
+        imageUrl: [],
+      });
+      setCoverImageFile(null);
+      setAdditionalImageFiles([]);
+      setStep(1);
+    } catch (error) {
+      console.error("Error submitting pet data:", error);
+      setSubmitError("Failed to submit pet data. Please try again.");
+      toast({
+        title: "Error",
+        description: "Failed to list pet. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
   const nextStep = () => setStep((prevStep) => Math.min(prevStep + 1, 5));
   const prevStep = () => setStep((prevStep) => Math.max(prevStep - 1, 1));
 
@@ -343,23 +459,28 @@ const PetForm = () => {
               className="w-full p-3 border border-blue-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
               rows={4}
             />
-            <div className="flex items-center justify-center w-full">
-              <label
-                htmlFor="dropzone-file"
-                className="flex flex-col items-center justify-center w-full h-64 border-2 border-blue-300 border-dashed rounded-lg cursor-pointer bg-blue-50 hover:bg-blue-100"
-              >
-                <div className="flex flex-col items-center justify-center pt-5 pb-6">
-                  <Camera className="w-10 h-10 mb-3 text-blue-500" />
-                  <p className="mb-2 text-sm text-blue-500">
-                    <span className="font-semibold">Click to upload</span> or
-                    drag and drop
-                  </p>
-                  <p className="text-xs text-blue-500">
-                    PNG, JPG or GIF (MAX. 800x400px)
-                  </p>
-                </div>
-                <input id="dropzone-file" type="file" className="hidden" />
+            <div className="space-y-2">
+              <label className="block text-sm font-medium text-blue-900">
+                Cover Image
               </label>
+              <input
+                type="file"
+                onChange={handleCoverImageChange}
+                accept="image/*"
+                className="w-full p-2 border border-blue-200 rounded-lg"
+              />
+            </div>
+            <div className="space-y-2">
+              <label className="block text-sm font-medium text-blue-900">
+                Additional Images
+              </label>
+              <input
+                type="file"
+                onChange={handleAdditionalImagesChange}
+                accept="image/*"
+                multiple
+                className="w-full p-2 border border-blue-200 rounded-lg"
+              />
             </div>
           </div>
         );
@@ -385,6 +506,9 @@ const PetForm = () => {
       </div>
       <form className="space-y-6" onSubmit={handleSubmit}>
         {renderStep()}
+        {submitError && (
+          <p className="text-red-500 text-sm mt-2">{submitError}</p>
+        )}
         <div className="flex justify-between mt-8">
           {step > 1 && (
             <button
@@ -408,10 +532,17 @@ const PetForm = () => {
           ) : (
             <button
               type="submit"
-              className="px-6 py-3 bg-green-500 text-white rounded-lg ml-auto hover:bg-green-600 transition duration-300 flex items-center"
+              disabled={isSubmitting}
+              className="px-6 py-3 bg-green-500 text-white rounded-lg ml-auto hover:bg-green-600 transition duration-300 flex items-center disabled:opacity-50"
             >
-              <HeartPulse className="mr-2" size={20} />
-              List Pet
+              {isSubmitting ? (
+                "Submitting..."
+              ) : (
+                <>
+                  <HeartPulse className="mr-2" size={20} />
+                  List Pet
+                </>
+              )}
             </button>
           )}
         </div>
