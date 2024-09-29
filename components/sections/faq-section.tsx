@@ -1,3 +1,4 @@
+
 "use client";
 import React from "react";
 import { cutAlong, panchoSemibold } from "@/app/fonts/font";
@@ -48,10 +49,10 @@ const faqItems: FaqItem[] = [
 
 export const FaqSection: React.FC = () => {
   return (
-    <section className="w-full bg-white border-t-4 border-blue-900 py-16 sm:py-24">
+    <section className="w-full bg-blue-900 border-t-4 border-white py-16 sm:py-24">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2
-          className={`text-4xl sm:text-5xl lg:text-6xl ${cutAlong.className} text-blue-900 text-center mb-12`}
+          className={`text-4xl sm:text-5xl lg:text-6xl ${cutAlong.className} text-white text-center mb-12`}
         >
           FAQ - POZU
         </h2>
@@ -60,14 +61,14 @@ export const FaqSection: React.FC = () => {
             <AccordionItem
               key={index}
               value={`item-${index + 1}`}
-              className="border border-blue-200 rounded-lg overflow-hidden"
+              className="bg-white rounded-lg overflow-hidden"
             >
               <AccordionTrigger
-                className={`text-left p-4 text-blue-900 ${panchoSemibold.className} text-lg sm:text-xl hover:no-underline hover:bg-blue-50 transition-colors duration-200`}
+                className={`text-left p-4 text-blue-900 ${panchoSemibold.className} text-lg sm:text-xl hover:no-underline`}
               >
                 {item.question}
               </AccordionTrigger>
-              <AccordionContent className="p-4 text-blue-800 bg-blue-50">
+              <AccordionContent className="p-4 text-gray-700">
                 {item.answer}
               </AccordionContent>
             </AccordionItem>
