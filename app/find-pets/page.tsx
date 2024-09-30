@@ -177,7 +177,7 @@ const FindPetsPage: React.FC = () => {
           <div className={`w-full ${showFilters ? "lg:w-3/4" : "lg:w-full"}`}>
             <div className="space-y-6 sm:space-y-12">
               {pets.map((pet) => (
-                <Link href="/" key={pet._id}>
+                <Link href={`/${pet._id}`} key={pet._id}>
                   <Card className="overflow-hidden my-6 border-b md:border-none">
                     <div className="flex flex-col sm:flex-row">
                       <div className="w-full">
