@@ -116,11 +116,12 @@ export const LargeHeader = () => {
                 <UserButton />
               </SignedIn>
             </div>
-            <button
+            <Link
               className={`bg-blue-900 text-white px-3 py-2 ${apercuRegular.className}`}
+              href={"/list-your-pet"}
             >
               List Your Pet
-            </button>
+            </Link>
           </div>
         </div>
       </header>

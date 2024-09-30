@@ -14,6 +14,7 @@ export const SmallHeader = () => {
   const navItems = [
     { href: "/", label: "Home" },
     { href: "/find-pets", label: "Find Pet" },
+    { href: "/list-your-pet", label: "List Pet" },
     { href: "/store", label: "Store" },
     { href: "/services", label: "Services" },
     { href: "/food", label: "Food" },
