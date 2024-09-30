@@ -1,3 +1,4 @@
+
 import { PozuPet } from "@/db/model/pozu-pet.model";
 import { connectDB } from "@/db/index";
 import { NextRequest, NextResponse } from "next/server";
@@ -14,7 +15,7 @@ export async function GET(req: NextRequest) {
     const minPrice = Number(searchParams.get('minPrice')) || 0;
     const maxPrice = Number(searchParams.get('maxPrice')) || Infinity;
 
-    const query: any = {};
+    const query: Record<string, unknown> = {};
 
     if (search) {
       query.$or = [
