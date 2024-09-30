@@ -16,7 +16,7 @@ export const HeroSection = () => {
       <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
         <div className="text-white text-center px-4 sm:px-6 md:px-8 max-w-4xl">
           <h1
-            className={`${panchoSemibold.className} text-4xl sm:text-5xl md:text-6xl lg:text-7xl mb-4 sm:mb-6`}
+            className={`${panchoSemibold.className} text-4xl sm:text-5xl md:text-6xl lg:text-7xl  mb-4 sm:mb-6`}
           >
             Pets, Food, Goods, & Services – All in One Place
           </h1>

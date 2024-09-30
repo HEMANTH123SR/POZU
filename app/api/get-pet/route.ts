@@ -1,4 +1,3 @@
-
 import { PozuPet } from "@/db/model/pozu-pet.model";
 import { connectDB } from "@/db/index";
 import { NextRequest, NextResponse } from "next/server";
