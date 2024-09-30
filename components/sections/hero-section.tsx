@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export const HeroSection = () => {
   return (
-    <section className="relative h-[70vh] sm:h-[75vh] md:h-[86vh]  m w-full">
+    <section className="relative h-[77vh]  md:h-[86vh]  m w-full">
       <video
         className="absolute top-0 left-0 w-full h-full object-cover"
         src="/hero-one.mp4"
