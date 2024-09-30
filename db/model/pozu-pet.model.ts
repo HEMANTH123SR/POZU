@@ -26,7 +26,7 @@ const petSchema = new mongoose.Schema({
   availabilityDate: Date,
   description: String,
   sellerNotes: String,
-  coverImage: String,
+  coverImage: { require: true, type: String },
   imageUrl: [String],
 });
 

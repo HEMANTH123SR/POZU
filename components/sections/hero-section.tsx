@@ -2,7 +2,7 @@ import { panchoSemibold } from "@/app/fonts/font";
 
 export const HeroSectin = () => {
   return (
-    <section className="relative  h-[90vh] sm:h-screen w-full">
+    <section className="relative  h-[90vh] sm:h-[84vh]  w-full">
       <video
         className="absolute top-0 left-0 w-full h-full object-cover"
         src="/hero-one.mp4"

@@ -7,41 +7,56 @@ import { BiSolidMessageDetail } from "react-icons/bi";
 import { PiShoppingCartSimpleFill } from "react-icons/pi";
 import { Cart } from "@/components/component/cart";
 import { SignInButton, SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
+
 export const LargeHeader = () => {
   const pathname = usePathname();
   const [showNav, setShowNav] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
   const [open, setOpen] = useState(false);
+  const [headerHeight, setHeaderHeight] = useState(0);
 
   useEffect(() => {
     const controlNavbar = () => {
       if (typeof window !== "undefined") {
         if (window.scrollY > lastScrollY) {
-          // if scroll down hide the navbar
           setShowNav(false);
         } else {
-          // if scroll up show the navbar
           setShowNav(true);
         }
-
-        // remember current page location to use in the next move
         setLastScrollY(window.scrollY);
       }
     };
 
     if (typeof window !== "undefined") {
       window.addEventListener("scroll", controlNavbar);
-
-      // cleanup function
       return () => {
         window.removeEventListener("scroll", controlNavbar);
       };
     }
   }, [lastScrollY]);
 
+  useEffect(() => {
+    const updateHeaderHeight = () => {
+      const header = document.getElementById("large-header");
+      if (header) {
+        setHeaderHeight(header.offsetHeight);
+      }
+    };
+
+    updateHeaderHeight();
+    window.addEventListener("resize", updateHeaderHeight);
+
+    return () => {
+      window.removeEventListener("resize", updateHeaderHeight);
+    };
+  }, []);
+
   return (
-    <>
-      <header className="w-full flex flex-col justify-center items-center fixed top-0 left-0 right-0 bg-white  z-50">
+    <div>
+      <header
+        id="large-header"
+        className="w-full flex flex-col justify-center items-center fixed top-0 left-0 right-0 bg-white z-50"
+      >
         {showNav && (
           <nav className="w-full flex justify-start items-center bg-[#D1D4D8] overflow-x-auto transition-all duration-300">
             {[
@@ -112,6 +127,7 @@ export const LargeHeader = () => {
         </div>
       </header>
       <Cart open={open} setOpen={setOpen} />
-    </>
+      <div style={{ paddingTop: `${headerHeight}px` }}></div>
+    </div>
   );
 };

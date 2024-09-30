@@ -674,7 +674,7 @@ const PetForm = () => {
 
   return (
     <div
-      className={`w-full md:w-10/12 lg:w-full mx-auto mt-16 p-4 md:p-8`}
+      className={`w-full md:w-10/12 lg:w-full mx-auto  p-4 md:p-8 md:py-0`}
       style={apercuRegular.style}
     >
       <Card>
