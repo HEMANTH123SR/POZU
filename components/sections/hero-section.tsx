@@ -1,5 +1,3 @@
-
-
 import { panchoSemibold } from "@/app/fonts/font";
 import Link from "next/link";
 
