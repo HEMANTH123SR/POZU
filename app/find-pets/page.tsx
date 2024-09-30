@@ -78,7 +78,7 @@ const FindPetsPage: React.FC = () => {
   };
 
   return (
-    <main className="w-full flex justify-start bg-white py-4 sm:py-8">
+    <main className="w-full flex justify-start bg-white  py-12 sm:py-8">
       <div className="container w-full mx-auto px-4">
         <div className="flex flex-col items-center mb-6 sm:mb-8">
           <div className="w-full max-w-3xl relative mb-4">
@@ -178,7 +178,7 @@ const FindPetsPage: React.FC = () => {
             <div className="space-y-6 sm:space-y-12">
               {pets.map((pet) => (
                 <Link href="/" key={pet._id}>
-                  <Card className="overflow-hidden my-6">
+                  <Card className="overflow-hidden my-6 border-b md:border-none">
                     <div className="flex flex-col sm:flex-row">
                       <div className="w-full">
                         <img
