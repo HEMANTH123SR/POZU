@@ -6,8 +6,8 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Slider } from "@/components/ui/slider";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Search, Filter, Calendar, Tag } from "lucide-react";
-
 import Link from "next/link";
+import { getPreviewImage } from "@/lib/appwrite"; // Make sure this path is correct
 
 interface Pet {
   _id: string;
@@ -27,6 +27,9 @@ interface Pet {
 
 const FindPetsPage: React.FC = () => {
   const [pets, setPets] = useState<Pet[]>([]);
+  const [previewImages, setPreviewImages] = useState<{ [key: string]: string }>(
+    {}
+  );
   const [search, setSearch] = useState("");
   const [species, setSpecies] = useState("");
   const [age, setAge] = useState("");
@@ -36,6 +39,10 @@ const FindPetsPage: React.FC = () => {
   useEffect(() => {
     fetchPets();
   }, [search, species, age, priceRange]);
+
+  useEffect(() => {
+    fetchPreviewImages();
+  }, [pets]);
 
   const fetchPets = async () => {
     const params = new URLSearchParams({
@@ -57,6 +64,17 @@ const FindPetsPage: React.FC = () => {
     } catch (error) {
       console.error("Error fetching pets:", error);
     }
+  };
+
+  const fetchPreviewImages = async () => {
+    const images: { [key: string]: string } = {};
+    for (const pet of pets) {
+      const result = await getPreviewImage(pet.coverImage);
+      if (result.status === "success" && result.href) {
+        images[pet._id] = result.href;
+      }
+    }
+    setPreviewImages(images);
   };
 
   return (
@@ -156,78 +174,74 @@ const FindPetsPage: React.FC = () => {
               </Card>
             </div>
           )}
-          <div className="border-t-">
-            <div className={`w-full ${showFilters ? "lg:w-3/4" : "lg:w-full"}`}>
-              <div className="space-y-6 sm:space-y-12">
-                {pets.map((pet) => (
-                  <Link href="/" key={pet._id}>
-                    <Card className="overflow-hidden my-6">
-                      <div className="flex flex-col sm:flex-row">
-                        <div className="w-full">
-                          <img
-                            src={pet.coverImage}
-                            alt={pet.name}
-                            className="w-full  sm:h-80 md:h-96 object-cover"
-                          />
-                        </div>
-                        <div className="w-full  p-4 sm:p-6">
-                          <CardHeader className="p-0 sm:p-2">
-                            <CardTitle className="text-xl sm:text-2xl font-bold">
-                              {pet.name}
-                            </CardTitle>
-                            <p className="text-sm text-gray-600">
-                              {pet.species} • {pet.breed} • {pet.age} •{" "}
-                              {pet.gender}
-                            </p>
-                          </CardHeader>
-                          <CardContent>
-                            <div className="grid grid-cols-2 gap-x-3 sm:gap-4 mb-4">
-                              <div>
-                                <p className="font-semibold">Color:</p>
-                                <p>{pet.color}</p>
-                              </div>
-                              <div>
-                                <p className="font-semibold">Price:</p>
-                                <p className="text-lg font-bold text-blue-900">
-                                  ${pet.price}
-                                </p>
-                              </div>
-                              <div>
-                                <p className="font-semibold">Vaccinated:</p>
-                                <p>{pet.vaccinated ? "Yes" : "No"}</p>
-                              </div>
-                              <div>
-                                <p className="font-semibold">
-                                  Spayed/Neutered:
-                                </p>
-                                <p>{pet.spayedNeutered ? "Yes" : "No"}</p>
-                              </div>
-                            </div>
-                            <p className="text-sm text-gray-700 mb-4 line-clamp-3">
-                              {pet.description}
-                            </p>
-                            <div className="flex flex-col sm:flex-row sm:items-center sm:space-x-4">
-                              <div className="flex items-center text-sm text-gray-600 mb-2 sm:mb-0">
-                                <Calendar size={16} className="mr-1" />
-                                <span>
-                                  Available:{" "}
-                                  {new Date(
-                                    pet.availabilityDate
-                                  ).toLocaleDateString()}
-                                </span>
-                              </div>
-                              <div className="flex items-center text-sm text-gray-600">
-                                <Tag size={16} className="mr-1" />
-                                <span>{pet.species}</span>
-                              </div>
-                            </div>
-                          </CardContent>
-                        </div>
+          <div className={`w-full ${showFilters ? "lg:w-3/4" : "lg:w-full"}`}>
+            <div className="space-y-6 sm:space-y-12">
+              {pets.map((pet) => (
+                <Link href="/" key={pet._id}>
+                  <Card className="overflow-hidden my-6">
+                    <div className="flex flex-col sm:flex-row">
+                      <div className="w-full">
+                        <img
+                          src={previewImages[pet._id] || pet.coverImage}
+                          alt={pet.name}
+                          className="w-full sm:h-80 md:h-96 object-cover"
+                        />
                       </div>
-                    </Card>
-                  </Link>
-                ))}
-              </div>
+                      <div className="w-full p-4 sm:p-6">
+                        <CardHeader className="p-0 sm:p-2">
+                          <CardTitle className="text-xl sm:text-2xl font-bold">
+                            {pet.name}
+                          </CardTitle>
+                          <p className="text-sm text-gray-600">
+                            {pet.species} • {pet.breed} • {pet.age} •{" "}
+                            {pet.gender}
+                          </p>
+                        </CardHeader>
+                        <CardContent>
+                          <div className="grid grid-cols-2 gap-x-3 sm:gap-4 mb-4">
+                            <div>
+                              <p className="font-semibold">Color:</p>
+                              <p>{pet.color}</p>
+                            </div>
+                            <div>
+                              <p className="font-semibold">Price:</p>
+                              <p className="text-lg font-bold text-blue-900">
+                                ${pet.price}
+                              </p>
+                            </div>
+                            <div>
+                              <p className="font-semibold">Vaccinated:</p>
+                              <p>{pet.vaccinated ? "Yes" : "No"}</p>
+                            </div>
+                            <div>
+                              <p className="font-semibold">Spayed/Neutered:</p>
+                              <p>{pet.spayedNeutered ? "Yes" : "No"}</p>
+                            </div>
+                          </div>
+                          <p className="text-sm text-gray-700 mb-4 line-clamp-3">
+                            {pet.description}
+                          </p>
+                          <div className="flex flex-col sm:flex-row sm:items-center sm:space-x-4">
+                            <div className="flex items-center text-sm text-gray-600 mb-2 sm:mb-0">
+                              <Calendar size={16} className="mr-1" />
+                              <span>
+                                Available:{" "}
+                                {new Date(
+                                  pet.availabilityDate
+                                ).toLocaleDateString()}
+                              </span>
+                            </div>
+                            <div className="flex items-center text-sm text-gray-600">
+                              <Tag size={16} className="mr-1" />
+                              <span>{pet.species}</span>
+                            </div>
+                          </div>
+                        </CardContent>
+                      </div>
+                    </div>
+                  </Card>
+                </Link>
+              ))}
             </div>
           </div>
         </div>
@@ -237,4 +251,3 @@ const FindPetsPage: React.FC = () => {
 };
 
 export default FindPetsPage;
-

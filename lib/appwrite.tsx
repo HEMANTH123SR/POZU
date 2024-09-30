@@ -1,4 +1,11 @@
-import { Client, Storage, ID, Models } from "appwrite";
+import {
+  Client,
+  Storage,
+  ID,
+  Models,
+  ImageGravity,
+  ImageFormat,
+} from "appwrite";
 
 // Initialize Appwrite client
 const client = new Client()
@@ -8,7 +15,9 @@ const client = new Client()
 const storage = new Storage(client);
 
 // Function to create an image file in the Appwrite storage
-export const createImage = async (image: File): Promise<{ status: string; id?: string; err?: string }> => {
+export const createImage = async (
+  image: File
+): Promise<{ status: string; id?: string; err?: string }> => {
   try {
     const response = await storage.createFile(
       process.env.NEXT_PUBLIC_APPWRITE_BUCKET_ID as string,
@@ -66,5 +75,35 @@ export const deleteAllTheImagesInTheBucket = async (): Promise<void> => {
         err.message
       );
     }
+  }
+};
+
+export const getPreviewImage = async (
+  fileId: string
+): Promise<{ status: string; href?: string; err?: string }> => {
+  try {
+    const result = await storage.getFilePreview(
+      process.env.NEXT_PUBLIC_APPWRITE_BUCKET_ID as string, // bucket ID
+      fileId, // file ID
+      1800, // width (resized)
+      0, // height (ignored if 0)
+      ImageGravity.Center, // correct ImageGravity enum value
+      90, // compression
+      5, // border width
+      "CDCA30", // border color
+      15, // border radius
+      1, // opacity
+      0, // rotation
+      "FFFFFF", // background color
+      ImageFormat.Png // output format (choose one format)
+    );
+
+    return { status: "success", href: result.href }; // Return the preview URL
+  } catch (err: unknown) {
+    if (err instanceof Error) {
+      console.log("appwrite :: getPreviewImage :: error :: ", err.message);
+      return { status: "error", err: err.message };
+    }
+    return { status: "error", err: "Unknown error" };
   }
 };
