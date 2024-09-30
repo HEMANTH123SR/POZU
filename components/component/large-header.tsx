@@ -5,14 +5,12 @@ import { usePathname } from "next/navigation";
 import { panchoSemibold, cutAlong, apercuRegular } from "@/app/fonts/font";
 import { BiSolidMessageDetail } from "react-icons/bi";
 import { PiShoppingCartSimpleFill } from "react-icons/pi";
-import { Cart } from "@/components/component/cart";
 import { SignInButton, SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
 
 export const LargeHeader = () => {
   const pathname = usePathname();
   const [showNav, setShowNav] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
-  const [open, setOpen] = useState(false);
   const [headerHeight, setHeaderHeight] = useState(0);
 
   useEffect(() => {
@@ -102,13 +100,13 @@ export const LargeHeader = () => {
               <span>Help</span>
               <BiSolidMessageDetail className="text-2xl" />
             </button>
-            <button
+            <Link
+              href={"/cart"}
               className="flex justify-center items-center  space-x-1 text-blue-900"
-              onClick={() => setOpen(true)}
             >
               <span>Cart</span>
               <PiShoppingCartSimpleFill className="text-2xl" />
-            </button>
+            </Link>
 
             <div className="flex justify-center items-center text-blue-900">
               <SignedOut>
@@ -126,7 +124,7 @@ export const LargeHeader = () => {
           </div>
         </div>
       </header>
-      <Cart open={open} setOpen={setOpen} />
+
       <div style={{ paddingTop: `${headerHeight}px` }}></div>
     </div>
   );

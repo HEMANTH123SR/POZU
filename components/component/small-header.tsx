@@ -4,6 +4,7 @@ import { apercuRegular, cutAlong } from "@/app/fonts/font";
 import { X } from "lucide-react";
 import { SignInButton, SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
 import { PiEqualsBold } from "react-icons/pi";
+import Link from "next/link";
 
 export const SmallHeader = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -43,7 +44,7 @@ export const SmallHeader = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center border-b-2 border-gray-100 py-2.5 md:py-6">
           <div className="flex justify-start lg:w-0 lg:flex-1">
-            <a href="/" className="flex items-center">
+            <Link href="/" className="flex items-center">
               <img
                 className="h-12 rotate-90 w-auto "
                 src="/logo-1.png"
@@ -57,7 +58,7 @@ export const SmallHeader = () => {
               >
                 POZU
               </span>
-            </a>
+            </Link>
           </div>
 
           {/* Mobile menu button */}
@@ -116,7 +117,7 @@ export const SmallHeader = () => {
               <div className="mt-6">
                 <nav className="grid gap-y-8">
                   {navItems.map((item) => (
-                    <a
+                    <Link
                       key={item.href}
                       href={item.href}
                       className="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50"
@@ -124,25 +125,25 @@ export const SmallHeader = () => {
                       <span className="ml-3 text-base font-semibold text-gray-900">
                         {item.label}
                       </span>
-                    </a>
+                    </Link>
                   ))}
                 </nav>
               </div>
             </div>
             <div className="py-6 px-5 space-y-6">
               <div className="grid grid-cols-2 gap-y-4 gap-x-8">
-                <a
-                  href="#"
+                <Link
+                  href="#help"
                   className="text-base font-medium text-gray-900 hover:text-gray-700"
                 >
                   Help
-                </a>
-                <a
-                  href="#"
+                </Link>
+                <Link
+                  href="/cart"
                   className="text-base font-medium text-gray-900 hover:text-gray-700"
                 >
                   Cart
-                </a>
+                </Link>
               </div>
               <div>
                 <a
