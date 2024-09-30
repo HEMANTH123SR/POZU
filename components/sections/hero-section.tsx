@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export const HeroSection = () => {
   return (
-    <section className="relative h-[77vh]  md:h-[86vh]  m w-full">
+    <section className="relative h-[86vh]    m w-full">
       <video
         className="absolute top-0 left-0 w-full h-full object-cover"
         src="/hero-one.mp4"
@@ -16,7 +16,7 @@ export const HeroSection = () => {
       <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
         <div className="text-white text-center px-4 sm:px-6 md:px-8 max-w-4xl">
           <h1
-            className={`${panchoSemibold.className} text-4xl sm:text-5xl md:text-6xl lg:text-7xl  mb-4 sm:mb-6`}
+            className={`${panchoSemibold.className} text-3xl sm:text-5xl md:text-6xl lg:text-7xl  mb-4 sm:mb-6`}
           >
             Pets, Food, Goods, & Services – All in One Place
           </h1>
